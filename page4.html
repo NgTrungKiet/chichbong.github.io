@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Selector Game</title>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .image-option {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .image-option:hover {
+            transform: scale(1.05);
+        h1{ 
+            border: solid;
+            border-color: pink;
+            
+        }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chọn người xinh nhất </h1>
+    <div class="image-container" id="imageContainer"></div>
+
+    <script>
+        const images = [
+            'dingu.png',
+            'winx.jpeg',
+            'lilmer.png',
+            'ari.jpeg',
+            'japan.png'
+
+            
+        ];
+
+        const correctImageIndex = 0;
+
+        const imageContainer = document.getElementById('imageContainer');
+
+        images.forEach((image, index) => {
+            const img = document.createElement('img');
+            img.src = image;
+            img.classList.add('image-option');
+            img.onclick = () => checkSelection(index);
+            imageContainer.appendChild(img);
+        });
+
+        function checkSelection(selectedIndex) {
+            if (selectedIndex === correctImageIndex) {
+                alert('Dung roiii gioi the :")');
+                window.location.href = 'page5.html';
+            } else {
+                alert('Sai roi day ma la xinh nhat aahhh!');
+            }
+        }
+    </script>
+</body>
+</html>

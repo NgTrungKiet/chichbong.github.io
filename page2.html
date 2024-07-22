@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf8">
+    <title>Check in</title>
+    <style>
+      /* preferably, of course, this is a <link> instead */
+      @font-face {
+        font-family: Futura;
+        src: local('Futura Std');
+      }
+      </style>
+
+    <style>
+        body{ 
+            background: pink;
+ 
+      
+        
+
+
+        }
+        .center {
+  border: 5px solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  border-color: rgb(228, 160, 181);
+
+}
+
+.small{ 
+    
+    font-family: futura;
+    font-size: xx-large;
+
+}
+.picture{ 
+    height: 100px;
+    width:100px
+    ;
+}
+        </style>
+<body>
+    
+
+    <div class="center"> 
+        <div class="small"> Connectez-vous ici</div>
+        <img src="hlinh1.png" class="picture"/> 
+        <div> Hint :</div>
+        <div> Username : ten tren Insta cua b trong anh (accprivate) </div>
+        <div> Mkhau = top1 món em thích nhất trong cái bảng m bắt a chọn + Diem Van </div>
+        <div> Ví dụ : Phobo10</div>
+        <br> 
+        <br> 
+        <form onsubmit="event.preventDefault(); verifyAccount();">
+         Username: <input id="username">  <br> 
+         Password : <input id="password" type="password""> 
+         <button type="button"    onclick="verifyAccount()"> Submit</button>
+        </form>
+        <script>
+          function verifyAccount() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+          
+            if (username === "cochichbongthanthien" && password === "Bunrieu9") {
+              console.log("Credentials correct, redirecting...");
+              window.location.replace("page3.html");
+            } else {
+              console.log("Incorrect credentials");
+              alert("Check lại xem chữ cái đầu mkhau viết hoa khôngg?!!");
+            }
+          }
+        </script>
+ 
+
+
+         </div>
+
+
+
+</body>
+</html>

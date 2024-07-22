@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Certificate</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: #333;
+            background: linear-gradient(45deg, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+        }
+        .certificate {
+            position: relative;
+            background: #fff url('couple.png') no-repeat center center;
+            margin: 50px auto;
+            padding: 40px;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 3em;
+            color: #d23669;
+            text-align: center;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .signature-line {
+            border-bottom: 1px solid #333;
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #fixed-signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.5em;
+            color: #d23669;
+        }
+        #dynamic-signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.5em;
+            color: #d23669;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #d23669;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate" id="certificate">
+        <h1>Certificate of Love</h1>
+        <p>This certifies that</p>
+        <p><strong>Rùa </strong> and <strong> Chích Bông </strong></p>
+        <p>have promised to love to trust and to respect each other till the end</p>
+        <p>on this day, 23/7/2024 </p>
+        <p>May their love grow stronger with each passing day</p>
+        <div class="signature-line">
+            <span id="fixed-signature">Nguyễn Minh Quân</span>
+        </div>
+        <div class="signature-line" onclick="sign()">
+            <span id="dynamic-signature">Click here to sign</span>
+        </div>
+    </div>
+    <button onclick="generatePDF()">Download as PDF</button>
+
+    <script>
+        document.getElementById('date').textContent = new Date().toLocaleDateString();
+
+        function sign() {
+            let name = prompt("Please enter your name to sign:");
+            if (name) {
+                document.getElementById('dynamic-signature').textContent = name;
+            }
+        }
+
+        function generatePDF() {
+            html2canvas(document.getElementById('certificate')).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jspdf.jsPDF();
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save("love_certificate.pdf");
+            });
+        }
+    </script>
+</body>
+</html>

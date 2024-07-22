@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html>
+  <meta charset="utf8">
+  <title>For Rua's lover</title>
+  <style>
+    /* preferably, of course, this is a <link> instead */
+    @font-face {
+      font-family: Futura;
+      src: local('Futura Std');
+    }
+    </style>
+
+    <style>
+        /* Ensure the body takes up the full viewport */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #fbc2eb;
+        }
+
+        
+     
+        /* Spline viewer with a pink background */
+        .spline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: pink; /* Pink background color */
+            z-index: 0; /* Ensure it's behind the overlay text */
+        }
+
+        /* Overlay text */
+        .overlay-text {
+            position: absolute;
+            font-size: 100px;
+            z-index: 1; /* Ensure it's on top of the Spline viewer */
+            color: #000; /* Text color */
+            font-family:futura ;
+          /* Text size */
+        }
+        .positon{ 
+            width: 800px;
+            margin-left: 60px;
+            
+        }
+        a{ color: inherit; }
+
+        .click{ 
+            background-color: pink;
+            border: none;
+            padding: 60px 100px;
+            font-size: x-large;
+            margin-left: 60px;
+            border-radius: 100px;
+            
+      
+        }
+        .click:hover{
+            background : linear-gradient(45deg, #ff7e5f, #feb47b, #ff9a9e, #fbc2eb); ;
+        }
+    </style>
+</head>
+<body>
+
+        <!-- Spline viewer with pink background -->
+        <spline-viewer url="https://prod.spline.design/C0MefhmFHCrDJ8k8/scene.splinecode" class="spline"></spline-viewer>
+    
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"></script>
+
+   <div class="overlay-text positon"> 
+    HAPPY ANNIVERSARY HA LINH YEU DAU CUA RUA
+   <a href="page2.html" class="click"> PLAY NGAY LAP TUC!? </a>
+
+</div>
+
+
+</body> 
+
+</html>
